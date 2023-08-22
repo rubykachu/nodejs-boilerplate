@@ -1,0 +1,39 @@
+{
+  "name": "quiznet",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "prod": "nodemon node ./bin/www",
+    "dev": "concurrently \"npm:watch-node\" \"npm:watch-css\"",
+    "watch-node": "DEBUG=quiznet:* nodemon ./bin/www.mjs",
+    "watch-css": "sass --watch app/assets/stylesheets/application.scss app/assets/stylesheets/application.css",
+    "lint": "eslint --fix",
+    "format": "prettier --cache --write --ignore-unknown"
+  },
+  "lint-staged": {
+    "*.{mjs,js}": "npm run lint",
+    "**/*": "npm run format"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "^4.18.2",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pug": "^3.0.2",
+    "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1",
+    "eslint": "^8.48.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-autofix": "^1.1.0",
+    "eslint-plugin-import": "^2.28.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "nodemon": "^3.0.1",
+    "prettier": "3.0.3",
+    "sass": "^1.66.1"
+  }
+}

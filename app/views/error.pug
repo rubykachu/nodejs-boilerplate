@@ -1,0 +1,9 @@
+if error.status == 400
+  include errors/400
+else
+  include errors/500
+
+block content
+  h1= message
+  h2= error.status
+  pre #{error.stack}
